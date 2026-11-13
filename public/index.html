@@ -20,7 +20,7 @@
         </div>
 
         <p id="error" style="display: none;"></p>
-        <input id="emailInput" placeholder="Email" />
+        <input id="emailInput" placeholder="Username" />
         <input id="passwordInput" placeholder="********" type="password" />
         <button id="authBtn" onclick="authenticate()">
             Submit
@@ -185,12 +185,15 @@
             isAuthenticating ||
             !emailVal ||
             !passVal ||
-            passVal.length < 6 ||
-            !emailVal.includes('@')
-        ) { return }
+            passVal.length < 6
+        ) {
+            textError.innerText = 'Please enter a username and a password (min 6 characters).'
+            textError.style.display = 'block'
+            return
+        }
 
         // reset error and set isAuthenticating to true
-        error.style.display = 'none'
+        textError.style.display = 'none'
         isAuthenticating = true
         authBtn.innerText = 'Authenticating...'
 
@@ -232,8 +235,8 @@
 
         } catch (err) {
             console.log(err.message)
-            error.innerText = err.message
-            error.style.display = 'block'
+            textError.innerText = err.message
+            textError.style.display = 'block'
         } finally {
             authBtn.innerText = 'Submit'
             isAuthenticating = false

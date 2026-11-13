@@ -9,8 +9,8 @@ if(!token){
 
 const jwtToken = token;
 try{
-    const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET);
-    req.userId = decoded.id;
+    const decoded = jwt.verify(jwtToken, process.env.JWT_SECRET_KEY);
+    req.userId = decoded.userId;
     next();
 }catch(err){
     return res.status(401).json({error: "Invalid token"})

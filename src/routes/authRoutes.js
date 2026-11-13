@@ -20,7 +20,7 @@ try{
    insertTodo.run(result.lastInsertRowid, "Welcome to Todo App");
    
    //create token
-   const token = jwt.sign({ userId: result.lastInsertRowid }, process.env.JWT_SECRET, { expiresIn: "24h" });
+   const token = jwt.sign({ userId: result.lastInsertRowid }, process.env.JWT_SECRET_KEY, { expiresIn: "24h" });
    
    res.json({ token });
 } catch (error) {
@@ -39,7 +39,7 @@ app.post("/login", (req, res) => {
     if (!isPasswordValid) {
         return res.status(401).json({ error: "Invalid credentials" });
     }
-    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: "24h" });
+    const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: "24h" });
     res.json({ token });
 });
 

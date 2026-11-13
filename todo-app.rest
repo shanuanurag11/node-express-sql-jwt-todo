@@ -18,4 +18,40 @@ Content-Type: application/json
     "username": "anurag",
     "password": "qwerty"
 }
+###
+# 
+# Get Todos
+GET http://localhost:5003/todos
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc5NDU1NTM4OCwiZXhwIjoxNzk0NjQxNzg4fQ.ARsi2JCRHlSVlaiuBudYX6o_EXprvSfIzT3is7BYYhw
+###
+# 
+# Create Todo
+POST http://localhost:5003/todos
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc5NDU1NTM4OCwiZXhwIjoxNzk0NjQxNzg4fQ.ARsi2JCRHlSVlaiuBudYX6o_EXprvSfIzT3is7BYYhw
+
+{
+    "task": "Buy groceries"
+   
+}
+###
+# 
+# Update Todo
+PUT http://localhost:5003/todos/3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc5NDU1NTM4OCwiZXhwIjoxNzk0NjQxNzg4fQ.ARsi2JCRHlSVlaiuBudYX6o_EXprvSfIzT3is7BYYhw
+
+{
+ "task": "Buy groceries two",
+ "completed": 1
+}
+###
+# 
+# Delete Todo
+DELETE http://localhost:5003/todos/3
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTc5NDU1NTM4OCwiZXhwIjoxNzk0NjQxNzg4fQ.ARsi2JCRHlSVlaiuBudYX6o_EXprvSfIzT3is7BYYhw
+###
+
 
