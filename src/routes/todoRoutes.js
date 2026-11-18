@@ -1,5 +1,5 @@
 import express from "express";
-import db from "../db.js";
+// import db from "../db.js";
 import prisma from "../prismaClient.js";
 
 const router = express.Router();
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
                 userId: req.userId
             }
         })
-        res.json({ id: result.lastInsertRowid, task, completed: 0 })
+        res.json({ id: insertTodo.id, task, completed: insertTodo.completed })
     } catch (err) {
         res.status(500).json({ error: "Failed to create todo" })
     }
